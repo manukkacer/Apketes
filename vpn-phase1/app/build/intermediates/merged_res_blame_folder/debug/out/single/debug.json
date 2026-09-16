@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.example.vpn.app-merged_res-28:/layout_activity_main.xml.flat",
+        "source": "com.example.vpn.app-main-30:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.vpn.app-merged_res-28:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.vpn.app-main-30:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.vpn.app-merged_res-28:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.vpn.app-main-30:/mipmap-anydpi-v26/ic_launcher.xml"
+    }
+]

@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startVpn() {
-        if (VpnService.isRunning()) {
+        if (vpnRunning) {
             Log.i(TAG, "VPN is already running");
             stopVpn();
         }

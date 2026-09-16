@@ -149,7 +149,7 @@ public class SimpleVpnService extends VpnService {
         public void run() {
             Log.i(TAG, "VPN thread started");
             
-            VpnService.VpnInterface vpnInterface = null;
+            var vpnInterface = null;
             try {
                 // Configure and establish the VPN interface
                 VpnService.Builder builder = new VpnService.Builder();
@@ -158,7 +158,7 @@ public class SimpleVpnService extends VpnService {
                 builder.setMtu(1500)
                        .addAddress("10.0.0.1", 24)
                        .addRoute("0.0.0.0", 0)
-                       .addDNSServer("8.8.8.8")
+                       .addDnsServer("8.8.8.8")
                        .setSession("SimpleVPN")
                        .setBlocking(true); // Blocking mode for simplicity
                 
