@@ -2,33 +2,38 @@ name: Build Android APK
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ "main", "master" ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ "main", "master" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
+    # 1. Checkout repository project Anda
+    - name: Checkout Code
       uses: actions/checkout@v4
 
+    # 2. Setup JDK (Gunakan JDK 17 yang kompatibel dengan versi Gradle modern)
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
         java-version: '17'
+        cache: 'gradle'
 
-    - name: Set up Gradle
-      uses: gradle/actions/setup-gradle@v3
+    # 3. Berikan izin eksekusi pada Gradle Wrapper
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
 
+    # 4. Jalankan Build Debug APK dengan parameter warning-mode
     - name: Build Debug APK
-      working-directory: vpn-phase1
-      run: gradle assembleDebug
+      run: ./gradlew assembleDebug --warning-mode all
 
+    # 5. Upload hasil APK ke Artifacts GitHub
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: app-debug-apk
-        path: vpn-phase1/app/build/outputs/apk/debug/*.apk
+        name: debug-apk
+        path: app/build/outputs/apk/debug/app-debug.apk
