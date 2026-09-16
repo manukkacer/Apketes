@@ -10,10 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    # Memberi tahu GitHub Actions bahwa semua perintah dijalankan di dalam folder Vpn-phase1
+    # Memberi tahu GitHub Actions bahwa semua perintah dijalankan di dalam folder vpn-phase1
     defaults:
       run:
-        working-directory: ./Vpn-phase1
+        working-directory: ./vpn-phase1
 
     steps:
     - name: Checkout Code
@@ -37,4 +37,4 @@ jobs:
       with:
         name: debug-apk
         # Path upload artifact harus ditulis lengkap dari root repository
-        path: Vpn-phase1/app/build/outputs/apk/debug/app-debug.apk
+        path: vpn-phase1/app/build/outputs/apk/debug/app-debug.apk
